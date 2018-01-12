@@ -18,13 +18,13 @@ public class HelloController {
     static Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     @Autowired
-    DiscoveryClient discoveryClient;
+    DiscoveryClient discoveryClient;//discoveryClient 一般用不到，能获取eureka相关客户端配置信息
     //=======================================================
     @RequestMapping("/hello")
     @ResponseBody
     public String hello() {
         ServiceInstance serviceInstance =  discoveryClient.getLocalServiceInstance();
         logger.info("Host:"+serviceInstance.getHost()+"   ServiceId:"+serviceInstance.getServiceId());
-        return "hello world";
+        return "hello world  my name is product hello";
     }
 }
